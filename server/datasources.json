@@ -1,0 +1,12 @@
+{
+  "pb-data": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "mongodb://localhost:27017/personalBudget",
+    "database": "personalBudget",
+    "password": "",
+    "name": "pb-data",
+    "user": "",
+    "connector": "mongodb"
+  }
+}
