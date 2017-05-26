@@ -16,5 +16,9 @@
   "expense": {
     "dataSource": "pb-data",
     "public": true
+  },
+  "budgetLine": {
+    "dataSource": "pb-data",
+    "public": true
   }
 }
