@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(Budgetline) {
-  //Hide endpoints
+  //Hide main endpoints
   Budgetline.disableRemoteMethodByName('findOne');
   Budgetline.disableRemoteMethodByName('count');
   Budgetline.disableRemoteMethodByName('exists');
@@ -11,6 +11,15 @@ module.exports = function(Budgetline) {
   Budgetline.disableRemoteMethodByName('createChangeStream');
   Budgetline.disableRemoteMethodByName('upsertWithWhere');
   Budgetline.disableRemoteMethodByName('prototype.updateAttributes');
-
   Budgetline.sharedClass.findMethodByName('replaceById', true).http = [{ verb: 'put', path: '/:id' }];
+
+  // Hide expense relation endpoints
+  Budgetline.disableRemoteMethodByName('prototype.__count__expenses');
+  Budgetline.disableRemoteMethodByName('prototype.__destroyById__expenses');
+  Budgetline.disableRemoteMethodByName('prototype.__updateById__expenses');
+  Budgetline.disableRemoteMethodByName('prototype.__findById__expenses');
+
+
+
+
 };
