@@ -32,7 +32,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "expenses": {
+      "type": "hasMany",
+      "model": "expense",
+      "foreignKey": "budgetline"
+    }
+  },
   "acls": [],
   "methods": {}
 }

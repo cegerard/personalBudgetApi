@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = function(Budgetline) {
+  //Hide endpoints
   Budgetline.disableRemoteMethodByName('findOne');
   Budgetline.disableRemoteMethodByName('count');
   Budgetline.disableRemoteMethodByName('exists');
