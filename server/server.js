@@ -2,7 +2,6 @@
 
 var loopback = require('loopback');
 var boot = require('loopback-boot');
-const { config } = require('../common/config')
 
 var app = module.exports = loopback();
 
