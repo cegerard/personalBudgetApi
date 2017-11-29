@@ -20,5 +20,32 @@
   "budgetLine": {
     "dataSource": "pb-data",
     "public": true
+  },
+  "endUser": {
+    "dataSource": "pb-data",
+    "public": true
+  },
+  "AccessToken": {
+    "dataSource": "pb-data",
+    "public": false,
+    "relations": {
+      "user": {
+        "type": "belongsTo",
+        "model": "endUser",
+        "foreignKey": "userId"
+      }
+    }
+  },
+  "ACL": {
+    "dataSource": "pb-data",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "pb-data",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "pb-data",
+    "public": false
   }
 }
