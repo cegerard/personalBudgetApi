@@ -18,8 +18,4 @@ module.exports = function(Budgetline) {
   Budgetline.disableRemoteMethodByName('prototype.__destroyById__expenses');
   Budgetline.disableRemoteMethodByName('prototype.__updateById__expenses');
   Budgetline.disableRemoteMethodByName('prototype.__findById__expenses');
-
-
-
-
 };
