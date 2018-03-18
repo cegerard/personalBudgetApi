@@ -27,6 +27,11 @@
   },
   "validations": [],
   "relations": {
+    "createdBy": {
+      "type": "belongsTo",
+      "model": "endUser",
+      "foreignKey": "ownerId"
+    },
     "expenses": {
       "type": "hasMany",
       "model": "expense",

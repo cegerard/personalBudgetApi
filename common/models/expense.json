@@ -29,7 +29,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "budgetLine": {
+      "type": "belongsTo",
+      "model": "budgetLine",
+      "foreignKey": "budgetLine"
+    },
+    "createdBy": {
+      "type": "belongsTo",
+      "model": "endUser",
+      "foreignKey": "ownerId"
+    }
+  },
   "acls": [
     {
       "accessType": "*",
