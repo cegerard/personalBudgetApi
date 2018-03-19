@@ -2,7 +2,6 @@
 
 module.exports = function(Expense) {
   //Hide main endpoints
-  Expense.disableRemoteMethodByName('create');
   Expense.disableRemoteMethodByName('findOne');
   Expense.disableRemoteMethodByName('count');
   Expense.disableRemoteMethodByName('exists');
@@ -12,7 +11,8 @@ module.exports = function(Expense) {
   Expense.disableRemoteMethodByName('createChangeStream');
   Expense.disableRemoteMethodByName('upsertWithWhere');
   Expense.disableRemoteMethodByName('prototype.updateAttributes');
-  Expense.disableRemoteMethodByName('deleteById');
+  Expense.disableRemoteMethodByName('prototype.__get__budgetLine');
+  Expense.disableRemoteMethodByName('prototype.__get__createdBy');
   Expense.sharedClass.findMethodByName('replaceById', true).http = [{ verb: 'put', path: '/:id' }];
 
 };

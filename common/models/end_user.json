@@ -22,6 +22,11 @@
       "type": "hasMany",
       "model": "budgetLine",
       "foreignKey": "ownerId"
+    },
+    "expenses": {
+      "type": "hasMany",
+      "model": "expense",
+      "foreignKey": "ownerId"
     }
   },
   "acls": [
