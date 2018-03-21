@@ -43,16 +43,22 @@
   },
   "acls": [
     {
-      "accessType": "*",
       "principalType": "ROLE",
       "principalId": "$everyone",
-      "permission": "DENY"
+      "permission": "DENY",
+      "accessType": "*"
     },
     {
-      "accessType": "READ",
       "principalType": "ROLE",
-      "principalId": "$authenticated",
-      "permission": "ALLOW"
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "accessType": "READ"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "WRITE"
     }
   ],
   "methods": {}

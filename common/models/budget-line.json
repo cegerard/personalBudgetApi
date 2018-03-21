@@ -40,16 +40,40 @@
   },
   "acls": [
     {
-      "accessType": "*",
       "principalType": "ROLE",
       "principalId": "$everyone",
-      "permission": "DENY"
+      "permission": "DENY",
+      "accessType": "*"
     },
     {
-      "accessType": "READ",
       "principalType": "ROLE",
-      "principalId": "$authenticated",
-      "permission": "ALLOW"
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "accessType": "READ"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "WRITE"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "__get__expenses"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "__get__expenses"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "__create__expenses"
     }
   ],
   "methods": {}
