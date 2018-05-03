@@ -14,5 +14,4 @@ module.exports = function(Expense) {
   Expense.disableRemoteMethodByName('prototype.__get__budgetLine');
   Expense.disableRemoteMethodByName('prototype.__get__createdBy');
   Expense.sharedClass.findMethodByName('replaceById', true).http = [{ verb: 'put', path: '/:id' }];
-
 };
