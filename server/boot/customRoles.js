@@ -26,7 +26,7 @@ module.exports = (app) => {
             });
         })
         .then((adminRole) => {
-            endUser.create({
+            return endUser.create({
                 firstName: "administrator",
                 lastName: "administrator",
                 email: "admin@personalbudget.com",
@@ -34,10 +34,19 @@ module.exports = (app) => {
             })
             .then((admin) => {
                 console.log('Default admin user created');
-                adminRole.principals.create({
+                return adminRole.principals.create({
                     principalType: RoleMapping.USER,
                     principalId: admin.id
                 })
+                .then((principal) => {
+                    console.log('Administrator added to admin role');
+                    return principal;
+                })
+                .catch((err) => {
+                    console.err('Fail to associate admin user to admin role');
+                    console.log(err);
+                    throw err;
+                });
             })
             .catch((err) => {
                if(get(err, 'details.messages.email[0]', '') == 'Email already exists') {
