@@ -42,6 +42,9 @@
   },
   "RoleMapping": {
     "dataSource": "pb-data",
+    "options": {
+      "strictObjectIDCoercion": true
+    },
     "public": false
   },
   "Role": {
