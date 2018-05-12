@@ -20,4 +20,21 @@ module.exports = function(Budgetline) {
   Budgetline.disableRemoteMethodByName('prototype.__destroyById__expenses');
   Budgetline.disableRemoteMethodByName('prototype.__updateById__expenses');
   Budgetline.disableRemoteMethodByName('prototype.__findById__expenses');
+
+  // Add Remote methods  
+  Budgetline.remoteMethod(
+    'total',
+    {
+      description: 'Compute the total expense in this budget line',
+      http: {
+        path: '/:id/total',
+        verb: 'get'
+      },
+      accepts: [{arg: 'id', type: 'string', required: true}],
+      returns: {
+        type: 'number',
+        root: true
+      }
+    }
+  )
 };
