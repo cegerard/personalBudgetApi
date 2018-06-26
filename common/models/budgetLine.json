@@ -51,6 +51,12 @@
     },
     {
       "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "DENY",
+      "property": "__create__expenses"
+    },
+    {
+      "principalType": "ROLE",
       "principalId": "$owner",
       "permission": "ALLOW",
       "property": "__get__expenses"
@@ -60,6 +66,12 @@
       "principalId": "$owner",
       "permission": "ALLOW",
       "property": "__create__expenses"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "total"
     }
   ],
   "methods": {}
