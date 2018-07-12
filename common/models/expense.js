@@ -14,4 +14,17 @@ module.exports = function(Expense) {
   Expense.disableRemoteMethodByName('prototype.__get__budgetLine');
   Expense.disableRemoteMethodByName('prototype.__get__createdBy');
   Expense.sharedClass.findMethodByName('replaceById', true).http = [{ verb: 'put', path: '/:id' }];
+
+  Expense.observe('before save', (ctx, next) => {
+    const token = ctx.options && ctx.options.accessToken;
+    const userId = token && token.userId;
+
+    if (ctx.instance) {
+      ctx.instance.setAttribute('ownerId', userId);
+    } else {
+      ctx.data.ownerId = userId;
+    }
+
+    next();
+  });
 };
