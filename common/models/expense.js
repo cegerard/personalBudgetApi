@@ -1,5 +1,7 @@
 'use strict';
 
+const OWNER_ID_PROP = 'ownerId';
+
 module.exports = function(Expense) {
   //Hide main endpoints
   Expense.disableRemoteMethodByName('findOne');
@@ -17,12 +19,11 @@ module.exports = function(Expense) {
 
   Expense.observe('before save', (ctx, next) => {
     const token = ctx.options && ctx.options.accessToken;
-    const userId = token && token.userId;
+     const userId = token && token.userId; 
 
-    if (ctx.instance) {
-      ctx.instance.setAttribute('ownerId', userId);
-    } else {
-      ctx.data.ownerId = userId;
+    // Add current user id as ownerId on each new instance creation
+    if (ctx.isNewInstance) {
+      ctx.instance.setAttribute(OWNER_ID_PROP, userId);
     }
 
     next();

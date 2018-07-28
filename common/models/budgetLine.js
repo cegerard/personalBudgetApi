@@ -1,5 +1,7 @@
 'use strict';
 
+const OWNER_ID_PROP = 'ownerId';
+
 module.exports = function(Budgetline) {
   //Hide main endpoints
   Budgetline.disableRemoteMethodByName('findOne');
@@ -37,4 +39,17 @@ module.exports = function(Budgetline) {
       }
     }
   )
+
+  // Add operation Hooks
+  Budgetline.observe('before save', (ctx, next) => {  
+    // Add current user id as ownerId on each new instance creation
+    if (ctx.isNewInstance) {
+      const token = ctx.options && ctx.options.accessToken;
+      const userId = token && token.userId;
+  
+      ctx.instance.setAttribute(OWNER_ID_PROP, userId);
+    }
+
+    next();
+  });
 };
