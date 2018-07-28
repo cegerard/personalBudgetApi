@@ -5,7 +5,7 @@ module.exports = (app) => {
     const Expense = app.models.expense;
 
     Budgetline.total = (id) => {
-        return Expense.find({ budgetLine: id })
+        return Expense.find({ where: { budgetLine: id } })
             .then((expenses) => {
                 return expenses.reduce((total, expense) => {
                     return total + expense.amount;
