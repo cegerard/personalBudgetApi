@@ -23,7 +23,7 @@
 
     <div id="app">
         <menu-bar></menu-bar>
-        <budgetline-list></budgetline-list>
+        <router-view></router-view>
         <login-modal v-if="!currentUser.logged" @signin="login"></login-modal>
     </div>
 
@@ -37,6 +37,7 @@
 
     <!-- VueJs core JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 
     <!--Axios http client -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -51,6 +52,7 @@
 
     <!-- Vue components -->
     <script src="components/loginModal.js"></script>
+    <script src="components/home.js"></script>
     <script src="components/menuBar.js"></script>
     <script src="components/budgetlineList.js"></script>
     <script src="app.js"></script>

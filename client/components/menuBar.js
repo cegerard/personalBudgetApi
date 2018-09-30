@@ -11,13 +11,13 @@ Vue.component('menu-bar', {
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Home</a>
-            </li>
             <li class="nav-item active">
-              <a class="nav-link" href="#">Budgetlines
+              <router-link class="nav-link" to="/">Home
                 <span class="sr-only">(current)</span>
-              </a>
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" to="/budgetlines">Budgetlines</router-link>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Expenses</a>

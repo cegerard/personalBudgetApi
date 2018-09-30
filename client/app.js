@@ -1,3 +1,11 @@
+// Instanciate router
+const router = new VueRouter({
+  routes: [
+    { path: '/', component: homeView },
+    { path: '/budgetlines', component: budgetlinesListView }
+  ]
+});
+
 // Application root Vue initialization
 new Vue({
   el: '#app',
@@ -6,5 +14,6 @@ new Vue({
       logged: false
     }
   },
+  router,
   mixins: [loginApi]
-})
+});
