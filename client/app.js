@@ -11,7 +11,9 @@ new Vue({
   el: '#app',
   data: {
     currentUser: {
-      logged: false
+      logged: false,
+      id: '',
+      token: ''
     }
   },
   router,

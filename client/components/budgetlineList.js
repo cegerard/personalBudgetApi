@@ -3,49 +3,55 @@ const budgetLineCard = {
     data: function () {
         return {}
     },
-    props: ['budget'],
+    props: ['budgetline'],
+    computed: {
+        available: function() {
+            let expenses = 0;
+            if(!isNaN(this.budgetline.totalExpense)) {
+                expenses = this.budgetline.totalExpense;
+            }
+            return this.budgetline.budget - expenses;
+        }
+    },
+    created: function () {
+        this.$parent.getBudgetTotalExpense(this.budgetline.id)
+            .then((total) => {
+                this.budgetline.totalExpense = total;
+            })
+    },
     template: `
     <div class="col-lg-4 col-sm-6 portfolio-item">
         <div class="card h-100">
             <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
             <div class="card-body">
                 <h4 class="card-title">
-                    <a href="#">{{budget.name}}</a>
+                    <a href="#">{{budgetline.name}}</a>
                 </h4>
-                <p class="card-text">Budget: {{budget.budget}}€</p>
-                <p class="card-text">Expenses: {{budget.expenses}}€</p>
-                <p class="card-text">Available: {{budget.available}}€</p>
+                <p class="card-text">Budget: {{budgetline.budget}}€</p>
+                <p class="card-text">Expenses: {{budgetline.totalExpense}}€</p>
+                <p class="card-text">Available: {{available}}€</p>
             </div>
         </div>
     </div>
     `
 };
 
-// Budgetline list Vue component
-Vue.component('budgetline-list', {
+// Budgetline list Vue object
+const budgetlinesListView = {
     data: function () {
         return {
-            budgetLines: [
-                {
-                    name: 'Budget1',
-                    budget: 700,
-                    expenses: 250,
-                    available: 450
-                },
-                {
-                    name: 'Budget2',
-                    budget: 100,
-                    expenses: 0,
-                    available: 100
-                },
-                {
-                    name: 'Budget3',
-                    budget: 7000,
-                    expenses: 500,
-                    available: 6500
-                }
-            ]
+            budgetLines: []
         }
+    },
+    mixins: [budgetlineApi],
+    created: function () {
+        this.getBudgetlines()
+            .then((budgetLines) => {
+                budgetLines.forEach(budgetline => {
+                    budgetline.totalExpense = 'na';
+                });
+                this.budgetLines = budgetLines;
+            })
     },
     components: {
         'budgetline-card': budgetLineCard
@@ -59,7 +65,7 @@ Vue.component('budgetline-list', {
                 <budgetline-card
                     v-for="budgetLine in budgetLines"
                     v-bind:key="budgetLine.id"
-                    v-bind:budget="budgetLine"
+                    v-bind:budgetline="budgetLine"
                 ></budgetline-card>
             </div>
             <ul class="pagination justify-content-center">
@@ -87,4 +93,4 @@ Vue.component('budgetline-list', {
             </ul>
         </div>
     `
-})
+};
