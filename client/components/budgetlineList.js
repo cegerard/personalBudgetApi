@@ -25,7 +25,7 @@ const budgetLineCard = {
             <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
             <div class="card-body">
                 <h4 class="card-title">
-                    <a href="#">{{budgetline.name}}</a>
+                    <router-link :to="{ name: 'budgetline', params: { id: budgetline.id }}">{{budgetline.name}}</router-link>
                 </h4>
                 <p class="card-text">Budget: {{budgetline.budget}}€</p>
                 <p class="card-text">Expenses: {{budgetline.totalExpense}}€</p>
