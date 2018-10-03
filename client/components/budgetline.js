@@ -7,10 +7,12 @@ const budgetlineView = {
     },
     mixins: [budgetlineApi],
     created: function () {
+        this.$root.loading = true;
         this.getBudgetline(this.$route.params.id)
             .then((budgetline) => {
                 this.budgetline = budgetline;
-            })
+                this.$root.loading = false;
+            });
     },
     template: `
     <div class="col-lg-4 col-sm-6 portfolio-item">

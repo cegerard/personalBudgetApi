@@ -39,6 +39,12 @@ body {
   vertical-align: middle;
 }
 
+.modal-img-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+} 
+
 .modal-container {
   width: 350px;
   margin: 0px auto;

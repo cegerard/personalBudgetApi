@@ -25,6 +25,7 @@
         <menu-bar></menu-bar>
         <router-view></router-view>
         <login-modal v-if="!currentUser.logged" @signin="login"></login-modal>
+        <loading-modal v-if="loading"></login-modal>
     </div>
 
     <!-- Footer -->
@@ -52,6 +53,7 @@
     <script src="lib/budgetlineApi.js"></script>
 
     <!-- Vue components -->
+    <script src="components/loadingModal.js"></script>
     <script src="components/loginModal.js"></script>
     <script src="components/home.js"></script>
     <script src="components/menuBar.js"></script>

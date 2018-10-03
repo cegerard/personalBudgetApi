@@ -45,13 +45,15 @@ const budgetlinesListView = {
     },
     mixins: [budgetlineApi],
     created: function () {
+        this.$root.loading = true;
         this.getBudgetlines()
             .then((budgetLines) => {
                 budgetLines.forEach(budgetline => {
                     budgetline.totalExpense = 'na';
                 });
                 this.budgetLines = budgetLines;
-            })
+                this.$root.loading = false;
+            });
     },
     components: {
         'budgetline-card': budgetLineCard

@@ -15,7 +15,8 @@ new Vue({
       logged: false,
       id: '',
       token: ''
-    }
+    },
+    loading: false
   },
   router,
   mixins: [loginApi]
