@@ -11,6 +11,7 @@
 *.tgz
 *.xml
 .DS_Store
+.cache
 .idea
 .project
 .strong-pm
