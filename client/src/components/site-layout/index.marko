@@ -1,26 +1,35 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="fr-FR">
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width"/>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
     <title>
       <${input.title}/>
     </title>
   </head>
   <body>
     <header>
-      <img.logo src="./logo.png" alt="marko logo"/>
-      <h1>
-        <${input.title}/>
-      </h1>
-      <nav.menu>
-        <a href="/">home</a>
-        <a href="/hello/routing">routes</a>
-        <a href="/layouts">layouts</a>
-      </nav>
+      <div class="site-container">
+        <img.logo src="./logo.png" alt="logo"/>
+        <h3>
+          <${input.title}/>
+        </h3>
+      </div>
+      <div class="menu-container">
+        <div class="pure-menu pure-menu-horizontal">
+          <ul class="pure-menu-list">
+            <li class="pure-menu-item"><a href="/" class="pure-menu-link">home</a></li>
+            <li class="pure-menu-item"><a href="/hello/routing" class="pure-menu-link">routes</a></li>
+            <li class="pure-menu-item"><a href="/layouts" class="pure-menu-link">layouts</a></li>
+          </ul>
+        </div>
+      </div>
     </header>
     <div.content>
       <${input.content}/>
     </div>
+    <footer>
+    </footer>
   </body>
 </html>

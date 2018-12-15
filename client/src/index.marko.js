@@ -21,7 +21,7 @@ function render(input, out, __component, component, state) {
   site_layout_tag({
       title: {
           renderBody: function renderBody(out) {
-            out.w("Marko Starter");
+            out.w("Personal Budget");
           }
         },
       content: {
