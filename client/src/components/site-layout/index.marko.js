@@ -49,7 +49,7 @@ function render(input, out, __component, component, state) {
 
   marko_dynamicTag(input.title, {}, out, __component, "13");
 
-  out.w("</h3></div><div class=\"menu-container\"><div class=\"pure-menu pure-menu-horizontal\"><ul class=\"pure-menu-list\"><li class=\"pure-menu-item\"><a href=\"/\" class=\"pure-menu-link\">home</a></li><li class=\"pure-menu-item\"><a href=\"/hello/routing\" class=\"pure-menu-link\">routes</a></li><li class=\"pure-menu-item\"><a href=\"/layouts\" class=\"pure-menu-link\">layouts</a></li></ul></div></div></header><div class=\"content\">");
+  out.w("</h3></div><div class=\"menu-container\"><div class=\"pure-menu pure-menu-horizontal\"><ul class=\"pure-menu-list\"><li class=\"pure-menu-item\"><a href=\"/\" class=\"pure-menu-link\">Home</a></li><li class=\"pure-menu-item\"><a href=\"/budgets\" class=\"pure-menu-link\">Budgets</a></li><li class=\"pure-menu-item\"><a href=\"/expenses\" class=\"pure-menu-link\">Expenses</a></li></ul></div></div></header><div class=\"content\">");
 
   marko_dynamicTag(input.content, {}, out, __component, "24");
 
