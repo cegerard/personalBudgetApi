@@ -7,12 +7,12 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
     marko_renderer = components_helpers.r,
     marko_defineComponent = components_helpers.c,
     marko_helpers = require("marko/src/runtime/html/helpers"),
-    marko_dynamicTag = marko_helpers.d,
     marko_loadTag = marko_helpers.t,
     lasso_head_tag = marko_loadTag(require("@lasso/marko-taglib/taglib/head-tag")),
     component_globals_tag = marko_loadTag(require("marko/src/components/taglib/component-globals-tag")),
     asset_var_tag = marko_loadTag(require("@lasso/marko-taglib/taglib/asset-var/renderer")),
     marko_attr = marko_helpers.a,
+    marko_dynamicTag = marko_helpers.d,
     lasso_body_tag = marko_loadTag(require("@lasso/marko-taglib/taglib/body-tag")),
     init_components_tag = marko_loadTag(require("marko/src/components/taglib/init-components-tag")),
     await_reorderer_tag = marko_loadTag(require("marko/src/taglibs/async/await-reorderer-tag"));
@@ -20,13 +20,9 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<!DOCTYPE html><html lang=\"fr-FR\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width\"><link rel=\"stylesheet\" href=\"https://unpkg.com/purecss@1.0.0/build/pure-min.css\" integrity=\"sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w\" crossorigin=\"anonymous\"><title>");
+  out.w("<!DOCTYPE html><html lang=\"fr-FR\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width\"><link rel=\"stylesheet\" href=\"https://unpkg.com/purecss@1.0.0/build/pure-min.css\" integrity=\"sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w\" crossorigin=\"anonymous\"><title>Personal Budget</title>");
 
-  marko_dynamicTag(input.title, {}, out, __component, "6");
-
-  out.w("</title>");
-
-  lasso_head_tag({}, out, __component, "7");
+  lasso_head_tag({}, out, __component, "6");
 
   out.w("</head><body>");
 
@@ -43,23 +39,19 @@ function render(input, out, __component, component, state) {
           marko_attr("src", __src.url) +
           " alt=\"logo\" class=\"logo\">");
       }
-    }, out, __component, "28");
+    }, out, __component, "26");
 
-  out.w("<h3>");
+  out.w("<h3>Personal Budget</h3></div><div class=\"menu-container\"><div class=\"pure-menu pure-menu-horizontal\"><ul class=\"pure-menu-list\"><li class=\"pure-menu-item\"><a href=\"/\" class=\"pure-menu-link\">Home</a></li><li class=\"pure-menu-item\"><a href=\"/budgets\" class=\"pure-menu-link\">Budgets</a></li><li class=\"pure-menu-item\"><a href=\"/expenses\" class=\"pure-menu-link\">Expenses</a></li></ul></div></div></header><div class=\"content\">");
 
-  marko_dynamicTag(input.title, {}, out, __component, "13");
-
-  out.w("</h3></div><div class=\"menu-container\"><div class=\"pure-menu pure-menu-horizontal\"><ul class=\"pure-menu-list\"><li class=\"pure-menu-item\"><a href=\"/\" class=\"pure-menu-link\">Home</a></li><li class=\"pure-menu-item\"><a href=\"/budgets\" class=\"pure-menu-link\">Budgets</a></li><li class=\"pure-menu-item\"><a href=\"/expenses\" class=\"pure-menu-link\">Expenses</a></li></ul></div></div></header><div class=\"content\">");
-
-  marko_dynamicTag(input.content, {}, out, __component, "24");
+  marko_dynamicTag(input.content, {}, out, __component, "22");
 
   out.w("</div><footer></footer>");
 
-  lasso_body_tag({}, out, __component, "26");
+  lasso_body_tag({}, out, __component, "24");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "27");
+  await_reorderer_tag({}, out, __component, "25");
 
   out.w("</body></html>");
 }
