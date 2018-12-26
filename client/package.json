@@ -1,10 +1,12 @@
 {
-  "name": "personalBudgetUI",
+  "name": "personal-budget-ui",
   "description": "Demo of how to build an app using marko-starter",
   "version": "1.0.0",
   "dependencies": {
+    "jquery": "^3.3.1",
     "marko": "^4.13.10",
-    "marko-starter": "^2.0.4"
+    "marko-starter": "^2.0.4",
+    "materialize-css": "^1.0.0-rc.2"
   },
   "devDependencies": {
     "eslint": "^5.9.0",

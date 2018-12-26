@@ -2,7 +2,7 @@
 "use strict";
 
 var marko_template = module.exports = require("marko/src/html").t(__filename),
-    marko_componentType = "/personalBudgetUI$1.0.0/src/index.marko",
+    marko_componentType = "/personal-budget-ui$1.0.0/src/index.marko",
     components_helpers = require("marko/src/components/helpers"),
     marko_renderer = components_helpers.r,
     marko_defineComponent = components_helpers.c,
@@ -19,7 +19,7 @@ function render(input, out, __component, component, state) {
   site_layout_tag({
       content: {
           renderBody: function renderBody(out) {
-            out.w("<p>TODO put user dashboard here</p>");
+            out.w("<p>TODO put user dashboard here or login page</p>");
           }
         },
       [hasRenderBodyKey]: true
@@ -34,7 +34,7 @@ marko_template._ = marko_renderer(render, {
 marko_template.Component = marko_defineComponent({}, marko_template._);
 
 marko_template.meta = {
-    id: "/personalBudgetUI$1.0.0/src/index.marko",
+    id: "/personal-budget-ui$1.0.0/src/index.marko",
     tags: [
       "./components/site-layout"
     ]
