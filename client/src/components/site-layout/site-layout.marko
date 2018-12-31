@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr-FR">
+<html lang="fr-FR" on-load('initSideNav')>
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width"/>
@@ -35,5 +35,10 @@
   </body>
   <script src="../../../node_modules/materialize-css/dist/js/materialize.min.js"></script>
   <script src="../../../node_modules/jquery/dist/jquery.slim.min.js"></script>
-  <script src="./outerScripts.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const elems = document.querySelectorAll('.sidenav');
+      M.Sidenav.init(elems, {});
+    });
+  </script>
 </html>
