@@ -1,3 +1,7 @@
-require("./project").server({
-  httpPort: process.env.PORT || 8080 // Optional, but added here for demo purposes
+const marko = require('./project');
+const config = require('./config');
+
+// Start marko application server
+marko.server({
+  httpPort: config.port
 });
