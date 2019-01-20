@@ -2,12 +2,10 @@
   <div class="col s12 m6">
     <div class="card teal darken-1">
       <div class="card-content white-text">
-        <span class="card-title">Card Title</span>
-        <p>
-          I am a very simple card. I am good at containing small bits of information.
-        </p>
+        <span class="card-title">${input.budgetline.name}</span>
+        <p>${input.budgetline.description}</p>
         <div class="budget-available">
-          Available: 245,67 €
+          Available: ${input.budgetline.budget} €
         </div>
       </div>
       <div class="card-action">

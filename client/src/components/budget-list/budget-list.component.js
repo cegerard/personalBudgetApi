@@ -1,7 +1,17 @@
+const budgetService = require('../../services/budgetsService');
+
 module.exports = class {
     onCreate() {
-        // TODO call service to list budget lines
-        // Feed the state with budget list to display
-        this.state = {};
+        // Init compoenent state
+        this.state = {
+            budgetList: []
+        };
+
+        // Hydrate state
+        syncBudgetList(this.state);
     }
+}
+
+async function syncBudgetList(state) {
+    state.budgetList = await budgetService.getBudgets();
 }

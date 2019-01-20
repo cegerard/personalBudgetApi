@@ -1,3 +1,5 @@
 <div>
-    <budget-card/>
+    <for(budget in state.budgetList)>
+        <budget-card budgetline=budget/>
+    </for>
 </div>
