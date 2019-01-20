@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr-FR" on-load('initSideNav')>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <link href="../../../node_modules/materialize-css/dist/css/materialize.min.css"  rel="stylesheet" >
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Personal Budget</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo"><img.logo src="./logo.png"/>Personal Budget</a>
+          <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="/">Home</a></li>
+            <li><a href="/budgets">Budgets</a></li>
+            <li><a href="/expenses">Expenses</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <ul class="sidenav" id="nav-mobile">
+        <li><a href="/">Home</a></li>
+        <li><a href="/budgets">Budgets</a></li>
+        <li><a href="/expenses">Expenses</a></li>
+      </ul>
+    </header>
+    <div.content class='content'>
+      <${input.content}/>
+    </div>
+    <footer>
+    </footer>
+  </body>
+  <script src="../../../node_modules/materialize-css/dist/js/materialize.min.js"></script>
+  <script src="../../../node_modules/jquery/dist/jquery.slim.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const elems = document.querySelectorAll('.sidenav');
+      M.Sidenav.init(elems, {});
+    });
+  </script>
+</html>

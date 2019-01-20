@@ -10,7 +10,9 @@
 *.swp
 *.tgz
 *.xml
+*.marko.js
 .DS_Store
+.cache
 .idea
 .project
 .strong-pm
