@@ -1,6 +1,6 @@
 {
   "name": "personal-budget-ui",
-  "description": "Demo of how to build an app using marko-starter",
+  "description": "project use to provide an api that allow user to manage their budget lines",
   "version": "1.0.0",
   "dependencies": {
     "jquery": "^3.3.1",
@@ -12,6 +12,7 @@
     "eslint": "^5.9.0",
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-prettier": "^3.0.0",
+    "jest": "^23.6.0",
     "marko-prettyprint": "^1.5.2",
     "prettier": "^1.15.2"
   },
@@ -26,7 +27,7 @@
     "lint": "eslint src",
     "serve": "NODE_ENV=production marko-starter serve-static",
     "start": "marko-starter server",
-    "test": "npm run lint"
+    "test": "jest"
   },
   "private": true
 }
