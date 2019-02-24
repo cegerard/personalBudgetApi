@@ -4,7 +4,7 @@ const budgetService = require('../../services/budgetsService');
 
 module.exports = class {
   onCreate() {
-    // Init compoenent state
+    // Init component state
     this.state = {
       budgetList: [],
     };

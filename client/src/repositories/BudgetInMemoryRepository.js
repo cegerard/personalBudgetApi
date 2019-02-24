@@ -20,11 +20,11 @@ class BudgetInMemoryRepository {
     };
   }
 
-  async getBudgetLineById(budgetId) {
+  getBudgetLineById(budgetId) {
     throw 'Not implemented yet';
   }
 
-  async getAllBudgetLines(page = 0, size = 20) {
+  getAllBudgetLines(page = 0, size = 20) {
     // TODO manage pagination
     return Promise.resolve(Object.values(this.data.budgets));
   }

@@ -7,12 +7,12 @@ class BudgetService {
     this.repository = repository;
   }
 
-  async getBudgets() {
-    return await this.repository.getAllBudgetLines();
+  getBudgets() {
+    return this.repository.getAllBudgetLines();
   }
 
-  async getBudget(budgetLineId) {
-    return await this.repository.getBudgetLineById(budgetLineId);
+  getBudget(budgetLineId) {
+    return this.repository.getBudgetLineById(budgetLineId);
   }
 
   // TODO add expenses management
