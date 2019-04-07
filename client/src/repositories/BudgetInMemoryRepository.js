@@ -5,13 +5,13 @@ class BudgetInMemoryRepository {
     this.data = {
       budgets: {
         1: {
-          id: 1,
+          _id: 1,
           name: 'Car',
           budget: 850,
           description: 'All expenses related to cars',
         },
         2: {
-          id: 2,
+          _id: 2,
           name: 'Home',
           budget: 1500,
           description: 'All expenses related to home',
@@ -21,7 +21,7 @@ class BudgetInMemoryRepository {
   }
 
   getBudgetLineById(budgetId) {
-    throw 'Not implemented yet';
+    return Promise.resolve(this.data.budgets[budgetId]);
   }
 
   getAllBudgetLines(page = 0, size = 20) {
