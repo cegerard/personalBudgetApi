@@ -1,4 +1,4 @@
-const budgetService = require('../../services/budgetsService');
+const budgetService = require('../../core/budget/budgetsService');
 const template = require('./index.marko');
 
 exports.paths = '/budget/:id';
