@@ -3,7 +3,7 @@
   "description": "project use to provide an api that allow user to manage their budget lines",
   "version": "1.0.0",
   "dependencies": {
-    "jquery": "^3.3.1",
+    "jquery": "^3.4.1",
     "marko": "^4.16.9",
     "marko-starter": "^2.0.4",
     "materialize-css": "^1.0.0-rc.2"
