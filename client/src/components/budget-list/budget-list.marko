@@ -1,5 +1,18 @@
-<div>
-    <for|budget| of=state.budgetList>
-        <budget-card budgetline=budget/>
-    </for>
-</div>
+<table class="highlight centered responsive-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Budget (€)</th>
+    </tr>
+  </thead>
+  <tbody>
+  <for|budget| of=state.budgetList>
+    <tr onclick="document.location = '/budget/${budget._id}';">
+        <td>${budget.name}</td>
+        <td>${budget.description}</td>
+        <td>${budget.budget}</td>
+    </tr>
+  </for>
+  </tbody>
+</table>
