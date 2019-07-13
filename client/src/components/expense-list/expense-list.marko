@@ -1,5 +1,18 @@
-<div>
-    <for|expense| of=state.expenseList>
-        <expense-card expense=expense/>
-    </for>
-</div>
+<table class="highlight centered responsive-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Montant (€)</th>
+    </tr>
+  </thead>
+  <tbody>
+  <for|expense| of=state.expenseList>
+    <tr key=expense._id onclick=`document.location = '/expense/${expense._id}';`>
+        <td>${expense.name}</td>
+        <td>${expense.date}</td>
+        <td>${expense.amount}</td>
+    </tr>
+  </for>
+  </tbody>
+</table>

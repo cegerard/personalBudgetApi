@@ -21,7 +21,7 @@ class BudgetInMemoryRepository {
   }
 
   getBudgetLineById(budgetId) {
-    return Promise.resolve(this.data.budgets[budgetId]);
+    return Promise.resolve(JSON.parse(JSON.stringify(this.data.budgets[budgetId])));
   }
 
   getAllBudgetLines(page = 0, size = 20) {

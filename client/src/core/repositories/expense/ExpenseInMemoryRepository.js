@@ -27,7 +27,7 @@ class ExpenseInMemoryRepository {
   }
 
   getExpenseById(expenseId) {
-    return Promise.resolve(this.data.expenses[expenseId]);
+    return Promise.resolve(JSON.parse(JSON.stringify(this.data.expenses[expenseId])));
   }
 
   getAllExpenses(page = 0, size = 20) {

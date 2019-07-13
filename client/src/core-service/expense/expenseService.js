@@ -14,7 +14,9 @@ class ExpenseService {
 
   async getExpense(expenseId) {
     const expense = await this.repository.getExpenseById(expenseId);
+    console.log(expense);
     const budget = await budgetService.getBudget(expense.budgetLine);
+    console.log(budget);
     expense.budgetLine = budget.name; // replace the budgetId by the budget name
     return expense;
   }

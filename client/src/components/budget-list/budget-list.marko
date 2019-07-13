@@ -8,7 +8,7 @@
   </thead>
   <tbody>
   <for|budget| of=state.budgetList>
-    <tr onclick="document.location = '/budget/${budget._id}';">
+    <tr key=budget._id onclick=`document.location = '/budget/${budget._id}';`>
         <td>${budget.name}</td>
         <td>${budget.description}</td>
         <td>${budget.budget}</td>
