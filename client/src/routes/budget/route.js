@@ -1,9 +1,9 @@
-const budgetService = require('../../infrastructure/budgetsService');
+const budgetRepository = require('../../infrastructure/repositories/budget/BudgetInMemoryRepository');
 const template = require('./index.marko');
 
 exports.paths = '/budgets/:id';
 
 exports.handler = async (input, out) => {
-    const budget = await budgetService.getBudget(input.params.id);
+    const budget = await budgetRepository.getBudgetLineById(input.params.id);
     template.render({ budget }, out);
 };

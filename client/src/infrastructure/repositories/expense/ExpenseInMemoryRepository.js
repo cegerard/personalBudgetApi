@@ -1,5 +1,7 @@
 'use strict';
 
+const Adapter = require('./ExpenseAdapter');
+
 class ExpenseInMemoryRepository {
   constructor() {
     this.data = {
@@ -27,12 +29,18 @@ class ExpenseInMemoryRepository {
   }
 
   getExpenseById(expenseId) {
-    return Promise.resolve(JSON.parse(JSON.stringify(this.data.expenses[expenseId])));
+    return Adapter.adapt(this.data.expenses[expenseId]);
   }
 
   getAllExpenses(page = 0, size = 20) {
     // TODO manage pagination
-    return Promise.resolve(Object.values(this.data.expenses));
+    const adaptedExpense = Object.values(this.data.expenses).map(async expense => {
+      return await Adapter.adapt(expense);
+    });
+    return Promise.all(adaptedExpense)
+      .then(values => {
+        return values;
+      });
   }
 
   update(expense) {

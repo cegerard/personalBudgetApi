@@ -1,5 +1,7 @@
 'use strict';
 
+const Adapter = require('./BudgetAdapter');
+
 class BudgetInMemoryRepository {
   constructor() {
     this.data = {
@@ -21,12 +23,15 @@ class BudgetInMemoryRepository {
   }
 
   getBudgetLineById(budgetId) {
-    return Promise.resolve(JSON.parse(JSON.stringify(this.data.budgets[budgetId])));
+    return Promise.resolve(Adapter.adapt(this.data.budgets[budgetId]));
   }
 
   getAllBudgetLines(page = 0, size = 20) {
     // TODO manage pagination
-    return Promise.resolve(Object.values(this.data.budgets));
+    const adaptedBudgets = Object.values(this.data.budgets).map(budget => {
+      return Adapter.adapt(budget);
+    });
+    return Promise.resolve(adaptedBudgets);
   }
 
   update(budget) {

@@ -1,6 +1,6 @@
 'use strict';
 
-const expenseService = require('../../infrastructure/expenseService');
+const expenseRepository = require('../../infrastructure/repositories/expense/ExpenseInMemoryRepository');
 
 module.exports = class {
   onCreate() {
@@ -15,5 +15,5 @@ module.exports = class {
 };
 
 async function syncExpenseList(state) {
-  state.expenseList = await expenseService.getExpenses();
+  state.expenseList = await expenseRepository.getAllExpenses();
 }
