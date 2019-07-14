@@ -1,7 +1,7 @@
 'use strict';
 
-const expenseRepository = require('../../core/repositories/expense/ExpenseInMemoryRepository'); // TODO get repository depending on start up environement
-const budgetService = require('../budget/budgetsService');
+const expenseRepository = require('./repositories/expense/ExpenseInMemoryRepository'); // TODO get repository depending on start up environement
+const budgetService = require('./budgetsService');
 
 class ExpenseService {
   constructor(repository) {
