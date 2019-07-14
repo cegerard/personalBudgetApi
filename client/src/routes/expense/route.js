@@ -1,4 +1,4 @@
-const expenseService = require('../../core/expenseService');
+const expenseService = require('../../infrastructure/expenseService');
 const template = require('./index.marko');
 
 exports.paths = '/expense/:id';

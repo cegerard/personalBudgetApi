@@ -1,6 +1,6 @@
 'use strict';
 
-const budgetService = require('../../core/budgetsService');
+const budgetService = require('../../infrastructure/budgetsService');
 
 module.exports = class {
   onCreate() {
