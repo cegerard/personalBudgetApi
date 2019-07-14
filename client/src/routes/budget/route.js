@@ -1,7 +1,7 @@
 const budgetService = require('../../infrastructure/budgetsService');
 const template = require('./index.marko');
 
-exports.paths = '/budget/:id';
+exports.paths = '/budgets/:id';
 
 exports.handler = async (input, out) => {
     const budget = await budgetService.getBudget(input.params.id);

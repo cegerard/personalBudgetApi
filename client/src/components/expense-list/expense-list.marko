@@ -8,7 +8,7 @@
   </thead>
   <tbody>
   <for|expense| of=state.expenseList>
-    <tr key=expense._id onclick=`document.location = '/expense/${expense._id}';`>
+    <tr key=expense._id onclick=`document.location = '/expenses/${expense._id}';`>
         <td>${expense.name}</td>
         <td>${expense.date}</td>
         <td>${expense.amount}</td>
