@@ -1,8 +1,8 @@
 'use strict';
 
-const Expense = require('../../../domain/models/Expense');
+const Expense = require('../../../../domain/models/Expense');
 
-const budgetRepository = require('../budget/BudgetInMemoryRepository');
+const budgetRepository = require('../../budget');
 
 module.exports = class ExpenseAdapter {
     /**

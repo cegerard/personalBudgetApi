@@ -1,6 +1,6 @@
 'use strict';
 
-const Budget = require('../../../domain/models/Budget');
+const Budget = require('../../../../domain/models/Budget');
 
 module.exports = class BudgetAdapter {
     /**

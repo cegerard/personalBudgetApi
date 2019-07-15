@@ -1,6 +1,6 @@
 'use strict';
 
-const expenseRepository = require('../../infrastructure/repositories/expense/ExpenseInMemoryRepository');
+const expenseRepository = require('../../infrastructure/repositories/expense');
 
 module.exports = class {
   onCreate() {

@@ -1,6 +1,6 @@
 'use strict';
 
-const budgetRepository = require('../../infrastructure/repositories/budget/BudgetInMemoryRepository');
+const budgetRepository = require('../../infrastructure/repositories/budget');
 
 module.exports = class {
   onCreate() {

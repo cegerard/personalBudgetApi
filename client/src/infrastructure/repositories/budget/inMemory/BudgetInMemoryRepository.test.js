@@ -1,6 +1,6 @@
 'use strict';
 
-const budgetRepository = require('./BudgetInMemoryRepository');
+const budgetRepository = require('.');
 
 describe('BudgetInMemoryRepository', () => {
   describe('get a list of budget lines', () => {
