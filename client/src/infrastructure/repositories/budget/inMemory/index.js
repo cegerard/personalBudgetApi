@@ -1,9 +1,11 @@
 'use strict';
 
 const Adapter = require('./BudgetAdapter');
+const Repository = require('../../Repository');
 
-class BudgetInMemoryRepository {
+class BudgetInMemoryRepository extends Repository {
   constructor() {
+    super();
     this.data = {
       budgets: {
         1: {
@@ -22,28 +24,16 @@ class BudgetInMemoryRepository {
     };
   }
 
-  getBudgetLineById(budgetId) {
+  getById(budgetId) {
     return Promise.resolve(Adapter.adapt(this.data.budgets[budgetId]));
   }
 
-  getAllBudgetLines(page = 0, size = 20) {
+  getAll(page = 0, size = 20) {
     // TODO manage pagination
     const adaptedBudgets = Object.values(this.data.budgets).map(budget => {
       return Adapter.adapt(budget);
     });
     return Promise.resolve(adaptedBudgets);
-  }
-
-  update(budget) {
-    throw 'Not implemented yet';
-  }
-
-  create(newBudget) {
-    throw 'Not implemented yet';
-  }
-
-  delete(budgetId) {
-    throw 'Not implemented yet';
   }
 }
 

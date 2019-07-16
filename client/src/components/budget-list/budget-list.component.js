@@ -15,5 +15,5 @@ module.exports = class {
 };
 
 async function syncBudgetList(state) {
-  state.budgetList = await budgetRepository.getAllBudgetLines();
+  state.budgetList = await budgetRepository.getAll();
 }

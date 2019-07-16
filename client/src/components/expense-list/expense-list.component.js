@@ -15,5 +15,5 @@ module.exports = class {
 };
 
 async function syncExpenseList(state) {
-  state.expenseList = await expenseRepository.getAllExpenses();
+  state.expenseList = await expenseRepository.getAll();
 }

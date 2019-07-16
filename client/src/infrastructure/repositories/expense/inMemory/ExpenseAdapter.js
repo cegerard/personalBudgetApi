@@ -11,7 +11,7 @@ module.exports = class ExpenseAdapter {
      * @return {Expense} Domain Expense instance 
      */
     static async adapt(expense) {
-        const budget = await budgetRepository.getBudgetLineById(expense.budgetLine);
+        const budget = await budgetRepository.getById(expense.budgetLine);
         return new Expense(
             expense._id,
             expense.name,
