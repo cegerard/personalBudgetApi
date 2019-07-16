@@ -1,16 +1,16 @@
 'use strict';
 
-const budgetRepository = require('./BudgetInMemoryRepository');
+const budgetRepository = require('.');
 
 describe('BudgetInMemoryRepository', () => {
   describe('get a list of budget lines', () => {
     it('should get a list with default parameters', async() => {
-      const budgetLines = await budgetRepository.getAllBudgetLines();
+      const budgetLines = await budgetRepository.getAll();
       expect(budgetLines.length > 0).toBe(true);
     });
 
     it('should get a list page size defined', async() => {
-      const budgetLines = await budgetRepository.getAllBudgetLines(0, 2);
+      const budgetLines = await budgetRepository.getAll(0, 2);
       expect(budgetLines.length).toEqual(2);
     });
   });

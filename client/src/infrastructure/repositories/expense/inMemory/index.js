@@ -1,9 +1,11 @@
 'use strict';
 
 const Adapter = require('./ExpenseAdapter');
+const Repository = require('../../Repository');
 
-class ExpenseInMemoryRepository {
+class ExpenseInMemoryRepository extends Repository {
   constructor() {
+    super();
     this.data = {
       expenses: {
         1: {
@@ -28,11 +30,11 @@ class ExpenseInMemoryRepository {
     };
   }
 
-  getExpenseById(expenseId) {
+  getById(expenseId) {
     return Adapter.adapt(this.data.expenses[expenseId]);
   }
 
-  getAllExpenses(page = 0, size = 20) {
+  getAll(page = 0, size = 20) {
     // TODO manage pagination
     const adaptedExpense = Object.values(this.data.expenses).map(async expense => {
       return await Adapter.adapt(expense);
@@ -41,18 +43,6 @@ class ExpenseInMemoryRepository {
       .then(values => {
         return values;
       });
-  }
-
-  update(expense) {
-    throw 'Not implemented yet';
-  }
-
-  create(newExpense) {
-    throw 'Not implemented yet';
-  }
-
-  delete(expenseId) {
-    throw 'Not implemented yet';
   }
 }
 

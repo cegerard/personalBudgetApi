@@ -1,6 +1,6 @@
 'use strict';
 
-const budgetRepository = require('../../infrastructure/repositories/budget/BudgetInMemoryRepository');
+const budgetRepository = require('../../infrastructure/repositories/budget');
 
 module.exports = class {
   onCreate() {
@@ -15,5 +15,5 @@ module.exports = class {
 };
 
 async function syncBudgetList(state) {
-  state.budgetList = await budgetRepository.getAllBudgetLines();
+  state.budgetList = await budgetRepository.getAll();
 }
