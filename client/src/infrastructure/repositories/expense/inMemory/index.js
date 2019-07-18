@@ -5,13 +5,13 @@ const Repository = require('../../Repository');
 
 class ExpenseInMemoryRepository extends Repository {
   constructor() {
-    super();
+    super('ExpenseInMemoryRepository');
     this.data = {
       expenses: {
         1: {
           _id: 1,
           name: 'loyer',
-          date: new Date('2019-04-04'),
+          date: new Date('2019-04-04').toISOString(),
           amount: 780,
           type: 'transfer',
           comment: '',
@@ -20,7 +20,7 @@ class ExpenseInMemoryRepository extends Repository {
         2: {
           _id: 2,
           name: 'travaux',
-          date: new Date('2019-03-10'),
+          date: new Date('2019-03-10').toISOString(),
           amount: 680,
           type: 'card',
           comment: 'Changement de la fenêtre de la buanderie',

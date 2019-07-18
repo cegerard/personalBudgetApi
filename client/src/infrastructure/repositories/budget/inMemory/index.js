@@ -5,7 +5,7 @@ const Repository = require('../../Repository');
 
 class BudgetInMemoryRepository extends Repository {
   constructor() {
-    super();
+    super('BudgetInMemoryRepository');
     this.data = {
       budgets: {
         1: {
