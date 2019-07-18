@@ -29,5 +29,8 @@
     "start": "marko-starter server",
     "test": "jest"
   },
-  "private": true
+  "private": true,
+  "jest": {
+    "collectCoverage": true
+  }
 }
