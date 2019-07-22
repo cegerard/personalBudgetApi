@@ -13,7 +13,9 @@ module.exports = class BudgetAdapter {
             budget._id,
             budget.name,
             budget.budget,
-            budget.description
+            budget.description,
+            budget.period,
+            budget.startDate
         );
     }
 }

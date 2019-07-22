@@ -13,13 +13,17 @@ class BudgetInMemoryRepository extends Repository {
           name: 'Car',
           budget: 850,
           description: 'All expenses related to cars',
+          period: 'monthly',
+          startDate: new Date('2019-05-01')
         },
         2: {
           _id: 2,
           name: 'Home',
           budget: 1500,
           description: 'All expenses related to home',
-        },
+          period: 'fix',
+          startDate: new Date('2019-03-07')
+        }
       },
     };
   }
