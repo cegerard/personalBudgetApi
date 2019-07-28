@@ -17,16 +17,7 @@ describe('Budget', () => {
             budget: 100,
             description: 'description',
             startDate: startDate,
-            period: 'Monthly',
-            expenses: []
+            period: 'Monthly'
         });
-    });
-
-    it('should add an expense to a budget line', () => {
-        const expense = {id: 1, name: 'plop', amout: 100};
-        expect(budget.expenses.length).toEqual(0);
-        budget.addExpense(expense);
-        expect(budget.expenses.length).toEqual(1);
-        expect(budget.expenses[0]).toMatchObject({id: 1, name: 'plop', amout: 100});
     });
 });
