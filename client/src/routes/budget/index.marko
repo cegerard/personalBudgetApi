@@ -5,8 +5,10 @@
     <div>Available: ${input.budget.budget} €</div>
     <div>Period: ${input.budget.period}</div>
     <div>Start Date: ${input.budget.startDate}</div>
-    <!-- TODO add BL's expenses list -->
-    <!-- <expense-list/> -->
 
+    <div>
+      <h4>Expenses</h4>
+      <expense-list expenseList=input.budgetExpenses/>
+    </div>
   </@content>
 </site-layout>

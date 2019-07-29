@@ -21,5 +21,6 @@ describe('Repository abstraction', () => {
         expectToThrow(repository.delete);
         expectToThrow(repository.getAll);
         expectToThrow(repository.getById);
+        expectToThrow(repository.search);
     });
 });
