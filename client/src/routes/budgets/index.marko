@@ -1,6 +1,14 @@
 <site-layout>
     <@content>
-        <h3>Budgets List</h3>
+        <div class="row valign-wrapper">
+            <h3 class="col m11">Budgets List</h3>
+            <div class="col m1">
+                <button class="waves-effect waves-light btn-small"
+                        onclick="document.location = '/budgets/create';">
+                  Add
+                </button>
+            </div>
+        </div>
         <budget-list/>
     </@content>
 </site-layout>

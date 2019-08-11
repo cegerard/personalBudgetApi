@@ -46,7 +46,7 @@
                 </li>
             </ul>
         </header>
-        <div.content class="content">
+        <div.content class="container">
             <${input.content}/>
         </div>
         <footer/>
@@ -54,9 +54,13 @@
     <script src="../../../node_modules/materialize-css/dist/js/materialize.min.js"/>
     <script src="../../../node_modules/jquery/dist/jquery.slim.min.js"/>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const elems = document.querySelectorAll('.sidenav');
-            M.Sidenav.init(elems, {});
+        // Materialize init
+        $(document).ready(function(){
+          const navBar = $('.sidenav');
+          const datePickers = $('.datepicker');
+
+          M.Sidenav.init(navBar, {});
+          M.Datepicker.init(datePickers);
         });
     </script>
 </html>
