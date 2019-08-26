@@ -58,9 +58,11 @@
         $(document).ready(function(){
           const navBar = $('.sidenav');
           const datePickers = $('.datepicker');
+          const selects = $('select');
 
           M.Sidenav.init(navBar, {});
           M.Datepicker.init(datePickers);
+          M.FormSelect.init(selects);
         });
     </script>
 </html>
