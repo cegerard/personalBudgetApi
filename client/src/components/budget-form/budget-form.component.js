@@ -1,5 +1,8 @@
 'use strict';
 
+const budgetRepository = require('../../infrastructure/repositories/budget');
+const navigationService = require('../../infrastructure/ui/navigationService');
+
 module.exports = class {
   onCreate() {
     // Init component state
@@ -35,6 +38,13 @@ module.exports = class {
   }
 
   createBudget() {
-    console.log(this.state.createForm);
+    budgetRepository.create({
+      name: this.state.createForm.name,
+      budget: this.state.createForm.amount,
+      description: this.state.createForm.description,
+      period: this.state.createForm.period,
+      startDate: this.state.createForm.startDate
+    });
+    navigationService.replace('/budgets');
   }
 }
