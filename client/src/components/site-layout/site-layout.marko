@@ -61,7 +61,9 @@
           const selects = $('select');
 
           M.Sidenav.init(navBar, {});
-          M.Datepicker.init(datePickers);
+          M.Datepicker.init(datePickers, {
+              format: 'ddd mmm dd yyyy'
+          });
           M.FormSelect.init(selects);
         });
     </script>

@@ -1,13 +1,16 @@
 'use strict';
 
+const uuidv4 = require('uuid/v4');
+const store = require('store');
+
 const Adapter = require('./BudgetAdapter');
 const Repository = require('../../Repository');
 
 class BudgetInMemoryRepository extends Repository {
   constructor() {
     super('BudgetInMemoryRepository');
-    this.data = {
-      budgets: {
+    if(!store.get('budgets')) {
+      store.set('budgets', {
         1: {
           _id: 1,
           name: 'Car',
@@ -24,20 +27,27 @@ class BudgetInMemoryRepository extends Repository {
           period: 'fix',
           startDate: new Date('2019-03-07')
         }
-      },
-    };
+      });
+    }
   }
 
   getById(budgetId) {
-    return Promise.resolve(Adapter.adapt(this.data.budgets[budgetId]));
+    return Promise.resolve(Adapter.adapt(store.get('budgets')[budgetId]));
   }
 
   getAll(page = 0, size = 20) {
     // TODO manage pagination
-    const adaptedBudgets = Object.values(this.data.budgets).map(budget => {
+    const adaptedBudgets = Object.values(store.get('budgets')).map(budget => {
       return Adapter.adapt(budget);
     });
     return Promise.resolve(adaptedBudgets);
+  }
+
+  create(newBudget) {
+    const id = uuidv4();
+    const budgets = store.get('budgets');
+    budgets[id] = newBudget;
+    store.set('budgets', budgets);
   }
 }
 
