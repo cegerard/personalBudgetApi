@@ -24,7 +24,7 @@ class BudgetInMemoryRepository extends Repository {
           name: 'Home',
           budget: 1500,
           description: 'All expenses related to home',
-          period: 'fix',
+          period: 'yearly',
           startDate: new Date('2019-03-07')
         }
       });
