@@ -46,6 +46,7 @@ class BudgetInMemoryRepository extends Repository {
   create(newBudget) {
     const id = uuidv4();
     const budgets = store.get('budgets');
+    newBudget._id = id;
     budgets[id] = newBudget;
     store.set('budgets', budgets);
   }
