@@ -1,5 +1,7 @@
 'use strict';
 
+const jsCookie = require('js-cookie');
+
 const budgetRepository = require('../../infrastructure/repositories/budget');
 const navigationService = require('../../infrastructure/ui/navigationService');
 
@@ -37,14 +39,20 @@ module.exports = class {
     this.state.createForm.date = new Date(event.target.value);
   }
 
-  createBudget() {
-    budgetRepository.create({
-      name: this.state.createForm.name,
-      budget: this.state.createForm.amount,
-      description: this.state.createForm.description,
-      period: this.state.createForm.period,
-      startDate: this.state.createForm.startDate
-    });
-    navigationService.replace('/budgets');
+  async createBudget() {
+    await budgetRepository.create(
+      {
+        name: this.state.createForm.name,
+        budget: this.state.createForm.amount,
+        description: this.state.createForm.description,
+        period: this.state.createForm.period,
+        startDate: this.state.createForm.date
+      },
+      {
+        userId: jsCookie.get('userId'),
+        token: jsCookie.get('token')
+      }
+    );
+    navigationService.navigate('/budgets');
   }
 }
