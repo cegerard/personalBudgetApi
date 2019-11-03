@@ -1,5 +1,7 @@
 'use strict';
 
+const respositoryConfig = require('../../../config').httpRepository;
+
 /**
  * Abstract class use to generalize
  * resource repository mecanism
@@ -7,6 +9,7 @@
 module.exports = class Repository {
     constructor(name) {
         this.name = name;
+        this.config = respositoryConfig;
     }
 
     getById(id) {

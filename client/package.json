@@ -3,7 +3,9 @@
   "description": "project use to provide an api that allow user to manage their budget lines",
   "version": "1.0.0",
   "dependencies": {
+    "axios": "^0.19.0",
     "jquery": "^3.4.1",
+    "js-cookie": "^2.2.1",
     "lodash": "^4.17.15",
     "marko": "^4.18.5",
     "marko-starter": "^2.0.4",
