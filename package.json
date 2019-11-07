@@ -9,14 +9,9 @@
     "lint": "eslint .",
     "start": "node .",
     "test": "jasmine",
-<<<<<<< HEAD
-    "posttest": "npm run lint && nsp check",
-    "test:all": "npm test && cd client && npm test"
-=======
     "posttest": "npm run lint",
     "test:all": "npm test && npm run test:client",
     "test:client": "cd client && npm i && npm test"
->>>>>>> 2905986... fixup! chore: add travis
   },
   "dependencies": {
     "bcrypt": "^1.0.3",

@@ -1,7 +1,7 @@
-'use strict'
+'use strict';
 
-const { models } = require('../methods');
+const {models} = require('../methods');
 
 module.exports = (app) => {
-    models.buildBudgetLineMethods(app);
+  models.buildBudgetLineMethods(app);
 };
