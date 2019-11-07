@@ -1,9 +1,9 @@
 'use strict';
 
 const models = {
-    buildBudgetLineMethods: require('./budgetLine')
-}
+  buildBudgetLineMethods: require('./budgetLine'),
+};
 
 module.exports = {
-    models
-}
+  models,
+};

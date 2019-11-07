@@ -3,5 +3,5 @@
 const ownership = require('./ownership');
 
 module.exports = {
-    ownership
+  ownership,
 };
