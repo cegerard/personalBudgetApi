@@ -14,8 +14,8 @@ module.exports = class {
         amount: 0,
         description: '',
         period: 'monthly',
-        date: new Date()
-      }
+        date: new Date(),
+      },
     };
   }
 
@@ -27,7 +27,7 @@ module.exports = class {
     this.state.createForm.amount = event.target.value;
   }
 
-  setDescription(event){
+  setDescription(event) {
     this.state.createForm.description = event.target.value;
   }
 
@@ -46,13 +46,13 @@ module.exports = class {
         budget: this.state.createForm.amount,
         description: this.state.createForm.description,
         period: this.state.createForm.period,
-        startDate: this.state.createForm.date
+        startDate: this.state.createForm.date,
       },
       {
         userId: jsCookie.get('userId'),
-        token: jsCookie.get('token')
-      }
+        token: jsCookie.get('token'),
+      },
     );
     navigationService.navigate('/budgets');
   }
-}
+};

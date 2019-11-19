@@ -7,32 +7,32 @@ const respositoryConfig = require('../../../config').httpRepository;
  * resource repository mecanism
  */
 module.exports = class Repository {
-    constructor(name) {
-        this.name = name;
-        this.config = respositoryConfig;
-    }
+  constructor(name) {
+    this.name = name;
+    this.config = respositoryConfig;
+  }
 
-    getById(id) {
-        throw 'Not implemented, this is an abstract class';
-    }
+  getById(id) { // eslint-disable-line no-unused-vars
+    throw 'Not implemented, this is an abstract class';
+  }
 
-    getAll() {
-        throw 'Not implemented, this is an abstract class';
-    }
+  getAll() { // eslint-disable-line no-unused-vars
+    throw 'Not implemented, this is an abstract class';
+  }
 
-    update(resource) {
-        throw 'Not implemented, this is an abstract class';
-    }
+  update(resource) { // eslint-disable-line no-unused-vars
+    throw 'Not implemented, this is an abstract class';
+  }
 
-    create(newResource) {
-        throw 'Not implemented, this is an abstract class';
-    }
+  create(newResource) { // eslint-disable-line no-unused-vars
+    throw 'Not implemented, this is an abstract class';
+  }
 
-    delete(id) {
-        throw 'Not implemented, this is an abstract class';
-    }
+  delete(id) { // eslint-disable-line no-unused-vars
+    throw 'Not implemented, this is an abstract class';
+  }
 
-    search(filter) {
-        throw 'Not implemented, this is an abstract class';
-    }
-}
+  search(filter) { // eslint-disable-line no-unused-vars
+    throw 'Not implemented, this is an abstract class';
+  }
+};

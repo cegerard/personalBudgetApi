@@ -1,7 +1,6 @@
 'use strict';
 
 const axios = require('axios');
-const jsCookie = require('js-cookie');
 
 const Repository = require('../../Repository');
 const BudgetAdapter = require('./BudgetAdapter');
@@ -16,22 +15,22 @@ class BudgetRestRepository extends Repository {
       method: 'get',
       url: `${this.config.baseUrl}/endUsers/${context.userId}/budgetLines/${budgetId}`,
       headers: {
-        Authorization: context.token
-      }
+        Authorization: context.token,
+      },
     }).then(response => {
       return BudgetAdapter.adapt(response.data);
     });
   }
 
-  getAll(page = 0, size = 20, context) {
+  getAll(page = 0, size = 20, context) { // eslint-disable-line no-unused-vars
     return axios({
       method: 'get',
       url: `${this.config.baseUrl}/endUsers//${context.userId}/budgetLines`,
       headers: {
-        Authorization: context.token
-      }
+        Authorization: context.token,
+      },
     }).then(response => {
-      return response.data.map(BudgetAdapter.adapt)
+      return response.data.map(BudgetAdapter.adapt);
     });
   }
 
@@ -40,9 +39,9 @@ class BudgetRestRepository extends Repository {
       method: 'post',
       url: `${this.config.baseUrl}/endUsers/${context.userId}/budgetLines`,
       headers: {
-        Authorization: context.token
+        Authorization: context.token,
       },
-      data: newBudget
+      data: newBudget,
     }).then(response => {
       return BudgetAdapter.adapt(response.data);
     });

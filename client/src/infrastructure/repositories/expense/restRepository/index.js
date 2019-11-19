@@ -1,8 +1,10 @@
 'use strict';
 
 const axios = require('axios');
-const jsCookie = require('js-cookie');
-const { isEmpty, has } = require('lodash');
+const {
+  isEmpty,
+  has,
+} = require('lodash');
 
 const ExpenseAdapter = require('./ExpenseAdapter');
 const Repository = require('../../Repository');
@@ -17,28 +19,28 @@ class ExpenseRestRepository extends Repository {
       method: 'get',
       url: `${this.config.baseUrl}/endUsers/${context.userId}/expenses/${expenseId}`,
       headers: {
-        Authorization: context.token
-      }
+        Authorization: context.token,
+      },
     }).then(response => {
       return ExpenseAdapter.adapt(response.data);
     });
   }
 
-  getAll(page = 0, size = 20, context) {
+  getAll(page = 0, size = 20, context) { // eslint-disable-line no-unused-vars
     return axios({
       method: 'get',
       url: `${this.config.baseUrl}/endUsers/${context.userId}/expenses`,
       headers: {
-        Authorization: context.token
-      }
+        Authorization: context.token,
+      },
     }).then(response => {
-      return response.data.map(ExpenseAdapter.adapt)
+      return response.data.map(ExpenseAdapter.adapt);
     });
   }
 
   search(filter = {}, context) {
     // Validate filter
-    if(!isEmpty(filter) && !has(filter, 'budgetLine')) {
+    if (!isEmpty(filter) && !has(filter, 'budgetLine')) {
       throw new Error('Only budgetline filter is allowed');
     }
 
@@ -46,10 +48,10 @@ class ExpenseRestRepository extends Repository {
       method: 'get',
       url: `${this.config.baseUrl}/budgetLines/${filter.budgetLine}/expenses`,
       headers: {
-        Authorization: context.token
-      }
+        Authorization: context.token,
+      },
     }).then(response => {
-      return response.data.map(ExpenseAdapter.adapt)
+      return response.data.map(ExpenseAdapter.adapt);
     });
   }
 }

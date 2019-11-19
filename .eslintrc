@@ -1,4 +1,9 @@
 {
+  "env": {
+    "node": true,
+    "browser": true,
+    "jest": true
+  },
   "extends": "loopback",
   "rules": {
     "max-len": ["warn", { "code": 100 }]
