@@ -8,7 +8,7 @@
     "js-cookie": "^2.2.1",
     "lodash": "^4.17.15",
     "marko": "^4.18.5",
-    "marko-starter": "^2.0.4",
+    "marko-starter": "^2.1.0",
     "materialize-css": "^1.0.0-rc.2",
     "store": "^2.0.12"
   },
