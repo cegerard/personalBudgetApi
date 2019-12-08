@@ -1,5 +1,5 @@
 {
-  "name": "PersonalBudgetApi",
+  "name": "personal-budget-api",
   "version": "0.1.0",
   "main": "server/server.js",
   "engines": {
