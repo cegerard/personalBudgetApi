@@ -22,15 +22,37 @@ class BudgetRestRepository extends Repository {
     });
   }
 
+  // TODO manage pagination
   getAll(page = 0, size = 20, context) { // eslint-disable-line no-unused-vars
     return axios({
       method: 'get',
-      url: `${this.config.baseUrl}/endUsers//${context.userId}/budgetLines`,
+      url: `${this.config.baseUrl}/endUsers/${context.userId}/budgetLines`,
       headers: {
         Authorization: context.token,
       },
     }).then(response => {
       return response.data.map(BudgetAdapter.adapt);
+    });
+  }
+
+  upsert(budget, context) {
+    if (context.budgetId) {
+      return this.update(budget, context);
+    }
+
+    return this.create(budget, context);
+  }
+
+  update(budgetToUpdate, context) {
+    return axios({
+      method: 'put',
+      url: `${this.config.baseUrl}/endUsers/${context.userId}/budgetLines/${context.budgetId}`,
+      headers: {
+        Authorization: context.token,
+      },
+      data: budgetToUpdate,
+    }).then(response => {
+      return BudgetAdapter.adapt(response.data);
     });
   }
 

@@ -2,6 +2,7 @@
 
 const Budget = require('../../../../domain/models/Budget');
 
+// TODO make bidirectional budget adapter
 module.exports = class BudgetAdapter {
   /**
    * Transform a RestRepository budget to a domain Budget instance

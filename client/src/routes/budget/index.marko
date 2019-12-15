@@ -1,6 +1,14 @@
 <site-layout>
   <@content>
-    <h3>${input.budget.name}</h3>
+    <div class="row valign-wrapper">
+      <h3 class="col m11">${input.budget.name}</h3>
+      <div class="col m1">
+        <button class="waves-effect waves-light btn-small"
+                onclick=`document.location = '/budgets/${input.budget.id}/edit';`>
+          <i class="material-icons">edit</i>
+        </button>
+      </div>
+    </div>
     <p>${input.budget.description}</p>
     <div>Available: ${input.budget.budget} €</div>
     <div>Period: ${input.budget.period}</div>

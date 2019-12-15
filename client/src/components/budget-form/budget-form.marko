@@ -1,15 +1,15 @@
 <div class="row">
   <form class="col s12" action="#">
     <div class="input-field col s6">
-      <input id="budget_name" type="text" class="validate" on-input("setName")/>
+      <input id="budget_name" type="text" class="validate" value=state.createForm.name on-input("setName")/>
       <label for="budget_name">Budget Name</label>
     </div>
     <div class="input-field col s6">
-      <input id="budget_amount" type="text" class="validate" on-input("setAmount")/>
+      <input id="budget_amount" type="text" class="validate" value=state.createForm.amount on-input("setAmount")/>
       <label for="budget_amount">Amount</label>
     </div>
     <div class="input-field col s12">
-      <input id="budget_desc" type="text" class="validate" on-input("setDescription")/>
+      <input id="budget_desc" type="text" class="validate" value=state.createForm.description on-input("setDescription")/>
       <label for="budget_desc">Description</label>
     </div>
     <div class="input-field col s6">
@@ -40,6 +40,6 @@
       <input id="budget_date" type="text" value=state.createForm.date.toDateString() class="datepicker" on-change("setDate")/>
       <label for="budget_date">Date</label>
     </div>
-    <a class="waves-effect waves-light btn-small right" on-click("createBudget")>Submit</a>
+    <a class="waves-effect waves-light btn-small right" on-click("saveBudget")>Submit</a>
   </form>
 </div>

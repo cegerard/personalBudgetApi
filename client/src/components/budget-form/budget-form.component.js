@@ -6,16 +6,27 @@ const budgetRepository = require('../../infrastructure/repositories/budget');
 const navigationService = require('../../infrastructure/ui/navigationService');
 
 module.exports = class {
-  onCreate() {
+  onCreate(input) {
+    const initForm = {
+      name: '',
+      amount: 0,
+      description: '',
+      period: 'monthly',
+      date: new Date(),
+    };
+
+    if (input.budget) {
+      this.budgetId = input.budget.id;
+      initForm.name = input.budget.name;
+      initForm.amount = input.budget.budget;
+      initForm.description = input.budget.description;
+      initForm.period = input.budget.period;
+      initForm.date = new Date(input.budget.startDate);
+    }
+
     // Init component state
     this.state = {
-      createForm: {
-        name: '',
-        amount: 0,
-        description: '',
-        period: 'monthly',
-        date: new Date(),
-      },
+      createForm: initForm,
     };
   }
 
@@ -39,8 +50,10 @@ module.exports = class {
     this.state.createForm.date = new Date(event.target.value);
   }
 
-  async createBudget() {
-    await budgetRepository.create(
+  async saveBudget() {
+    // TODO move this logic into a Budget service
+    // to keep this component responsible of display purpose
+    await budgetRepository.upsert(
       {
         name: this.state.createForm.name,
         budget: this.state.createForm.amount,
@@ -49,6 +62,7 @@ module.exports = class {
         startDate: this.state.createForm.date,
       },
       {
+        budgetId: this.budgetId,
         userId: jsCookie.get('userId'),
         token: jsCookie.get('token'),
       },
