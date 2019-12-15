@@ -14,6 +14,7 @@ exports.handler = async(input, out) => {
   const budgetExpenses = await expenseRepository.search({
     budgetLine: input.params.id,
   }, context);
+
   template.render({
     budget,
     budgetExpenses,

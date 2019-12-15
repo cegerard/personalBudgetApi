@@ -12,6 +12,12 @@
         <td>${budget.name}</td>
         <td>${budget.description}</td>
         <td>${budget.budget}</td>
+        <td>
+            <button data-budgetline-id="${budget.id}" class="waves-effect waves-light btn-small btn-danger"
+                    on-click("delete", "${budget.id}")>
+              <i class="material-icons">delete</i>
+            </button>
+        </td>
     </tr>
   </for>
   </tbody>

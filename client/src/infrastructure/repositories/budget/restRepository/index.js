@@ -68,6 +68,18 @@ class BudgetRestRepository extends Repository {
       return BudgetAdapter.adapt(response.data);
     });
   }
+
+  delete(budgetLineId, context) {
+    return axios({
+      method: 'delete',
+      url: `${this.config.baseUrl}/endUsers/${context.userId}/budgetLines/${budgetLineId}`,
+      headers: {
+        Authorization: context.token,
+      },
+    }).then(() => {
+      return budgetLineId;
+    });
+  }
 }
 
 module.exports = new BudgetRestRepository();
