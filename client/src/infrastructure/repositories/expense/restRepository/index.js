@@ -54,6 +54,40 @@ class ExpenseRestRepository extends Repository {
       return response.data.map(ExpenseAdapter.adapt);
     });
   }
+
+  upsert(expense, context) {
+    if (context.expenseId) {
+      return this.update(expense, context);
+    }
+
+    return this.create(expense, context);
+  }
+
+  update(expenseToUpdate, context) {
+    return axios({
+      method: 'put',
+      url: `${this.config.baseUrl}/endUsers/${context.userId}/expenses/${context.expenseId}`,
+      headers: {
+        Authorization: context.token,
+      },
+      data: expenseToUpdate,
+    }).then(response => {
+      return ExpenseAdapter.adapt(response.data);
+    });
+  }
+
+  create(newExpense, context) {
+    return axios({
+      method: 'post',
+      url: `${this.config.baseUrl}/budgetLines/${context.budgetlineId}/expenses`,
+      headers: {
+        Authorization: context.token,
+      },
+      data: newExpense,
+    }).then(response => {
+      return ExpenseAdapter.adapt(response.data);
+    });
+  }
 }
 
 module.exports = new ExpenseRestRepository();

@@ -1,6 +1,14 @@
 <site-layout>
     <@content>
-        <h3>Expenses List</h3>
+        <div class="row valign-wrapper">
+            <h3 class="col m11">Expenses List</h3>
+            <div class="col m1">
+                <button class="waves-effect waves-light btn-small"
+                        onclick="document.location = '/expenses/create';">
+                  <i class="material-icons">add</i>
+                </button>
+            </div>
+        </div>
         <expense-list expenseList=input.expenses/>
     </@content>
 </site-layout>
