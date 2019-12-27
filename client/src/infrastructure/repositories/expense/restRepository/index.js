@@ -79,7 +79,7 @@ class ExpenseRestRepository extends Repository {
   create(newExpense, context) {
     return axios({
       method: 'post',
-      url: `${this.config.baseUrl}/budgetLines/${context.budgetlineId}/expenses`,
+      url: `${this.config.baseUrl}/budgetLines/${newExpense.budgetLine}/expenses`,
       headers: {
         Authorization: context.token,
       },

@@ -23,7 +23,7 @@ module.exports = class {
       initForm.comment = input.expense.comment;
       initForm.type = input.expense.type;
       initForm.date = new Date(input.expense.date);
-      initForm.budgetId = input.expense.budgetId;
+      initForm.budgetId = input.expense.budgetLine;
     }
 
     // Init component state
@@ -42,7 +42,7 @@ module.exports = class {
   }
 
   setComment(event) {
-    this.state.createForm.description = event.target.value;
+    this.state.createForm.comment = event.target.value;
   }
 
   setType(event) {
@@ -67,9 +67,9 @@ module.exports = class {
         comment: this.state.createForm.comment,
         type: this.state.createForm.type,
         date: this.state.createForm.date,
+        budgetLine: this.state.createForm.budgetId,
       },
       {
-        budgetlineId: this.state.createForm.budgetId,
         expenseId: this.expenseId,
         userId: jsCookie.get('userId'),
         token: jsCookie.get('token'),

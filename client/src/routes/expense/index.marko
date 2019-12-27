@@ -1,6 +1,14 @@
 <site-layout>
   <@content>
-    <h3>${input.expense.name}</h3>
+      <div class="row valign-wrapper">
+      <h3 class="col m11">${input.expense.name}</h3>
+      <div class="col m1">
+        <button class="waves-effect waves-light btn-small"
+                onclick=`document.location = '/expenses/${input.expense.id}/edit';`>
+          <i class="material-icons">edit</i>
+        </button>
+      </div>
+    </div>
     <p>${input.expense.comment}</p>
     <div>Amount: ${input.expense.amount}</div>
     <div>Date: ${input.expense.date}</div>

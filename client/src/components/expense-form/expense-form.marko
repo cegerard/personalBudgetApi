@@ -44,7 +44,12 @@
       <select on-change("setBudgetId")>
         <option value="" disabled selected>Choose the budget line</option>
         <for|budget| of=state.budgetList>
-          <option value=`${budget.id}`>${budget.name}</option>
+          <if(state.createForm.budgetId === budget.id)>
+             <option value=`${budget.id}` selected>${budget.name}</option>
+          </if>
+          <else>
+            <option value=`${budget.id}`>${budget.name}</option>
+          </else>
         </for>
       </select>
       <label>Budget line</label>
