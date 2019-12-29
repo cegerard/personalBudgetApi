@@ -11,7 +11,7 @@ module.exports = class {
       name: '',
       amount: 0,
       comment: '',
-      type: 'Card',
+      type: 'card', // TODO define enum shared on common part
       date: new Date(),
       budgetId: '',
     };
