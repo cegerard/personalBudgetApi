@@ -11,7 +11,7 @@
     </div>
     <p>${input.expense.comment}</p>
     <div>Amount: ${input.expense.amount}</div>
-    <div>Date: ${input.expense.date}</div>
+    <div>Date: ${new Date(input.expense.date)}</div>
     <div>Type: ${input.expense.type}</div>
     <div>BudgetLine: ${input.expense.budgetLine}</div>
   </@content>

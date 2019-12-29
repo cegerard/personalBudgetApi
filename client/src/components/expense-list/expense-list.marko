@@ -11,7 +11,7 @@
   <for|expense| of=input.expenseList>
     <tr key=expense.id onclick=`document.location = '/expenses/${expense.id}';`>
         <td>${expense.name}</td>
-        <td>${expense.date}</td>
+        <td>${new Date(expense.date)}</td>
         <td>${expense.amount}</td>
         <td>${expense.type}</td>
         <td>
