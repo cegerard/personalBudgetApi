@@ -88,6 +88,18 @@ class ExpenseRestRepository extends Repository {
       return ExpenseAdapter.adapt(response.data);
     });
   }
+
+  delete(expenseId, context) {
+    return axios({
+      method: 'delete',
+      url: `${this.config.baseUrl}/endUsers/${context.userId}/expenses/${expenseId}`,
+      headers: {
+        Authorization: context.token,
+      },
+    }).then(() => {
+      return expenseId;
+    });
+  }
 }
 
 module.exports = new ExpenseRestRepository();
