@@ -15,11 +15,11 @@
   },
   "expense": {
     "dataSource": "pb-data",
-    "public": true
+    "public": false
   },
   "budgetLine": {
     "dataSource": "pb-data",
-    "public": true
+    "public": false
   },
   "endUser": {
     "dataSource": "pb-data",
