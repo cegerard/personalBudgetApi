@@ -30,4 +30,5 @@ module.exports = function(EndUser) {
   EndUser.disableRemoteMethodByName('prototype.__create__expenses');
   EndUser.disableRemoteMethodByName('prototype.__delete__expenses');
   EndUser.disableRemoteMethodByName('prototype.__count__expenses');
+  EndUser.disableRemoteMethodByName('prototype.__updateById__budgetLines__expenses');
 };

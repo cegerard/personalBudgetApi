@@ -35,7 +35,7 @@ class BudgetRestRepository extends Repository {
     });
   }
 
-  upsert(budget, context) {
+  upsert(budget, context) { // Replace that by server side upsert method
     if (context.budgetId) {
       return this.update(budget, context);
     }
