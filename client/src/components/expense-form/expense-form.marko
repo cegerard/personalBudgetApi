@@ -22,7 +22,7 @@
           <option value="card">Card</option>
         </else>
         <if(state.createForm.type === 'check')>
-        <option value="check" selected>Check</option>
+          <option value="check" selected>Check</option>
         </if>
         <else>
           <option value="check">Check</option>
@@ -41,6 +41,12 @@
       <label for="expense_date">Date</label>
     </div>
     <div class="input-field col s6">
+    <if(state.expenseId)>
+        <select disabled>
+          <option value='' selected>${state.currentBudgetline.name}</option>
+        </select>
+    </if>
+    <else>
       <select on-change("setBudgetId")>
         <option value="" disabled selected>Choose the budget line</option>
         <for|budget| of=state.budgetList>
@@ -52,6 +58,7 @@
           </else>
         </for>
       </select>
+    </else>
       <label>Budget line</label>
     </div>
     <a class="waves-effect waves-light btn-small right" on-click("saveExpense")>Submit</a>

@@ -7,6 +7,8 @@ const navigationService = require('../../infrastructure/ui/navigationService');
 
 module.exports = class {
   onCreate(input) {
+    let expenseId, currentBudgetline;
+
     const initForm = {
       name: '',
       amount: 0,
@@ -17,7 +19,11 @@ module.exports = class {
     };
 
     if (input.expense) {
-      this.expenseId = input.expense.id;
+      expenseId = input.expense.id;
+      currentBudgetline = input.budgetList.find(budget => {
+        return input.expense.budgetLine === budget.id;
+      });
+
       initForm.name = input.expense.name;
       initForm.amount = input.expense.amount;
       initForm.comment = input.expense.comment;
@@ -30,6 +36,8 @@ module.exports = class {
     this.state = {
       createForm: initForm,
       budgetList: input.budgetList,
+      expenseId,
+      currentBudgetline,
     };
   }
 
@@ -70,7 +78,7 @@ module.exports = class {
         budgetLine: this.state.createForm.budgetId,
       },
       {
-        expenseId: this.expenseId,
+        expenseId: this.state.expenseId,
         userId: jsCookie.get('userId'),
         token: jsCookie.get('token'),
       },

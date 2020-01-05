@@ -44,9 +44,11 @@ class ExpenseRestRepository extends Repository {
       throw new Error('Only budgetline filter is allowed');
     }
 
+    const endUserPath = `endUsers/${context.userId}`;
+    const blPath = `budgetLines/${filter.budgetLine}`;
     return axios({
       method: 'get',
-      url: `${this.config.baseUrl}/endUsers/${context.userId}/budgetLines/${filter.budgetLine}/expenses`,
+      url: `${this.config.baseUrl}/${endUserPath}/${blPath}/expenses`,
       headers: {
         Authorization: context.token,
       },
@@ -77,9 +79,11 @@ class ExpenseRestRepository extends Repository {
   }
 
   create(newExpense, context) {
+    const endUserPath = `endUsers/${context.userId}`;
+    const blPath = `budgetLines/${newExpense.budgetLine}`;
     return axios({
       method: 'post',
-      url: `${this.config.baseUrl}/endUsers/${context.userId}/budgetLines/${newExpense.budgetLine}/expenses`,
+      url: `${this.config.baseUrl}/${endUserPath}/${blPath}/expenses`,
       headers: {
         Authorization: context.token,
       },
