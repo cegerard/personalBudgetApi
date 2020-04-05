@@ -1,12 +1,14 @@
 language:
   node_js
 node_js:
-  - 8
+  - 12
+services:
+  - docker
 install:
   - npm install -g codecov
   - npm i
 script:
-  - cd client && npm run lint && npm audit --audit-level high
-  - cd .. && npm run lint && npm audit --audit-level high
+  - cd client && npm run lint && docker build .
+  - cd .. && npm run lint && npm audit --audit-level high && docker build .
   - npm test
   - codecov
